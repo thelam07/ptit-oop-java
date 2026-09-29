@@ -1,0 +1,11 @@
+# File biên dịch của Java, không cần đưa lên GitHub
+*.class
+*.jar
+
+# Thư mục của IDE
+.idea/
+.vscode/
+*.iml
+out/
+bin/
+target/
