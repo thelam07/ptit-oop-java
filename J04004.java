@@ -8,10 +8,10 @@ public class J04004 {
         long c = sc.nextLong();
         long d = sc.nextLong();
 
-        PhanSo p = new PhanSo(a, b);
-        PhanSo q = new PhanSo(c, d);
+        phanSo p = new phanSo(a, b);
+        phanSo q = new phanSo(c, d);
 
-        PhanSo tong = p.cong(q);
+        phanSo tong = p.cong(q);
 
         System.out.println(tong);
 
@@ -19,11 +19,11 @@ public class J04004 {
     }
 }
 
-class PhanSo {
+class phanSo {
     private long tuSo;
     private long mauSo;
 
-    public PhanSo(long tuSo, long mauSo) {
+    public phanSo(long tuSo, long mauSo) {
         this.tuSo = tuSo;
         this.mauSo = mauSo;
     }
@@ -43,10 +43,10 @@ class PhanSo {
         mauSo = mauSo / ucln;
     }
 
-    public PhanSo cong(PhanSo p) {
+    public phanSo cong(phanSo p) {
         long tu = tuSo * p.mauSo + p.tuSo * mauSo;
         long mau = mauSo * p.mauSo;
-        PhanSo kq = new PhanSo(tu, mau);
+        phanSo kq = new phanSo(tu, mau);
         kq.rutGon();
         return kq;
     }
