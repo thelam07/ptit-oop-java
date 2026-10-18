@@ -3,26 +3,22 @@ import java.util.Scanner;
 public class J04009 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        if (sc.hasNextInt()) {
-            int soTest = sc.nextInt();
-            for (int t = 0; t < soTest; t++) {
-                Point p1 = new Point(sc.nextDouble(), sc.nextDouble());
-                Point p2 = new Point(sc.nextDouble(), sc.nextDouble());
-                Point p3 = new Point(sc.nextDouble(), sc.nextDouble());
+        int soTest = sc.nextInt();
+        for (int t = 0; t < soTest; t++) {
+            Point p1 = new Point(sc.nextDouble(), sc.nextDouble());
+            Point p2 = new Point(sc.nextDouble(), sc.nextDouble());
+            Point p3 = new Point(sc.nextDouble(), sc.nextDouble());
 
-                double dt = (p2.getX() - p1.getX()) * (p3.getY() - p1.getY())
-                        - (p3.getX() - p1.getX()) * (p2.getY() - p1.getY());
+            double a = p1.distance(p2);
+            double b = p2.distance(p3);
+            double c = p3.distance(p1);
 
-                if (Math.abs(dt) < 1e-9) {
-                    System.out.println("INVALID");
-                } else {
-                    double a = p1.distance(p2);
-                    double b = p2.distance(p3);
-                    double c = p3.distance(p1);
-
-                    double s = 0.25 * Math.sqrt((a + b + c) * (a + b - c) * (b + c - a) * (c + a - b));
-                    System.out.printf("%.2f\n", s);
-                }
+            if (a + b > c && b + c > a && c + a > b) {
+                double p = (a + b + c) / 2;
+                double s = Math.sqrt(Math.max(0, p * (p - a) * (p - b) * (p - c)));
+                System.out.printf("%.2f\n", s);
+            } else {
+                System.out.println("INVALID");
             }
         }
         sc.close();
